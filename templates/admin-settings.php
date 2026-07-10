@@ -94,8 +94,14 @@ settings_errors( 'google_login_messages' );
 							</label>
 							<p class="description">
 								<?php esc_html_e( 'Automatically create a WordPress account for new visitors logging in via Google.', 'google-login' ); ?>
-								<?php if ( ! get_option( 'users_can_register' ) ) : ?>
+								<?php 
+								$wp_reg_enabled = get_option( 'users_can_register' );
+								$wc_reg_enabled = class_exists( 'WooCommerce' ) && ( 'yes' === get_option( 'woocommerce_enable_myaccount_registration' ) || 'yes' === get_option( 'woocommerce_enable_signup_and_login_from_checkout' ) );
+								
+								if ( ! $wp_reg_enabled && ! $wc_reg_enabled ) : ?>
 									<span class="google-login-warning-text"><?php esc_html_e( 'Note: WordPress registration is globally disabled in Settings -> General.', 'google-login' ); ?></span>
+								<?php elseif ( ! $wp_reg_enabled && $wc_reg_enabled ) : ?>
+									<span class="google-login-warning-text" style="color: #007017; font-weight: 500;"><?php esc_html_e( 'Note: WordPress registration is disabled, but WooCommerce customer registration is enabled. Google Login will allow new users based on WooCommerce settings.', 'google-login' ); ?></span>
 								<?php endif; ?>
 							</p>
 						</td>

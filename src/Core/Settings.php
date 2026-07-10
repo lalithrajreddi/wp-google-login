@@ -75,7 +75,24 @@ class Settings {
 	 * @return bool
 	 */
 	public static function isRegistrationEnabled(): bool {
-		return (bool) self::get( 'allow_registration', true ) && get_option( 'users_can_register' );
+		if ( ! self::get( 'allow_registration', true ) ) {
+			return false;
+		}
+
+		if ( get_option( 'users_can_register' ) ) {
+			return true;
+		}
+
+		if ( class_exists( 'WooCommerce' ) ) {
+			if (
+				'yes' === get_option( 'woocommerce_enable_myaccount_registration' ) ||
+				'yes' === get_option( 'woocommerce_enable_signup_and_login_from_checkout' )
+			) {
+				return true;
+			}
+		}
+
+		return false;
 	}
 
 	/**

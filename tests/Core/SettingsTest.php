@@ -74,6 +74,33 @@ class SettingsTest extends TestCase {
 		Settings::update( 'google_client_id', 'test-client-id' );
 		$this->assertEquals( 'test-client-id', Settings::get( 'google_client_id' ) );
 	}
+
+	/**
+	 * Test WooCommerce registration settings logic.
+	 */
+	public function testIsRegistrationEnabledWooCommerce(): void {
+		// Disable general WP registration
+		$GLOBALS['wp_mock_options']['users_can_register'] = 0;
+		$GLOBALS['wp_mock_options']['woocommerce_enable_myaccount_registration'] = 'no';
+		$GLOBALS['wp_mock_options']['woocommerce_enable_signup_and_login_from_checkout'] = 'no';
+
+		// Create dummy WooCommerce class to simulate it being active
+		if ( ! class_exists( 'WooCommerce' ) ) {
+			$dummy = new class {};
+			class_alias( get_class( $dummy ), 'WooCommerce' );
+		}
+
+		$this->assertFalse( Settings::isRegistrationEnabled() );
+
+		// Enable My Account registration
+		$GLOBALS['wp_mock_options']['woocommerce_enable_myaccount_registration'] = 'yes';
+		$this->assertTrue( Settings::isRegistrationEnabled() );
+
+		// Disable My Account, Enable Checkout registration
+		$GLOBALS['wp_mock_options']['woocommerce_enable_myaccount_registration'] = 'no';
+		$GLOBALS['wp_mock_options']['woocommerce_enable_signup_and_login_from_checkout'] = 'yes';
+		$this->assertTrue( Settings::isRegistrationEnabled() );
+	}
 }
 
 
