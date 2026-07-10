@@ -1,0 +1,231 @@
+/**
+ * Google Login Frontend Stylesheet.
+ */
+
+.google-login-login-container {
+	margin: 20px 0;
+	text-align: center;
+}
+
+.google-login-separator {
+	display: flex;
+	align-items: center;
+	text-align: center;
+	margin: 15px 0;
+	color: #72777c;
+	font-size: 13px;
+}
+
+.google-login-separator::before,
+.google-login-separator::after {
+	content: '';
+	flex: 1;
+	border-bottom: 1px solid #ddd;
+}
+
+.google-login-separator:not(:empty)::before {
+	margin-right: .5em;
+}
+
+.google-login-separator:not(:empty)::after {
+	margin-left: .5em;
+}
+
+/* Premium Google Button */
+.google-login-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	background: #fff;
+	color: #444;
+	width: 100%;
+	max-width: 100%;
+	padding: 10px 16px;
+	border: 1px solid #dadce0;
+	border-radius: 4px;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	font-weight: 500;
+	text-decoration: none;
+	transition: background-color .2s, border-color .2s, box-shadow .2s, transform .1s;
+	cursor: pointer;
+	box-sizing: border-box;
+}
+
+.google-login-btn:hover {
+	background-color: #f8f9fa;
+	border-color: #d2e3fc;
+	box-shadow: 0 1px 3px 0 rgba(60,64,67,0.3), 0 4px 8px 3px rgba(60,64,67,0.15);
+	color: #202124;
+	transform: translateY(-1px);
+}
+
+.google-login-btn:active {
+	background-color: #eeeeee;
+	box-shadow: 0 1px 2px 0 rgba(60,64,67,0.3);
+	transform: translateY(0);
+}
+
+.google-login-btn-icon {
+	display: flex;
+	align-items: center;
+	margin-right: 12px;
+}
+
+.google-login-btn-text {
+	line-height: 1;
+}
+
+/* User Profile Connection Status Badge */
+.google-login-connection-status {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+	margin-top: 5px;
+}
+
+.google-login-status-badge {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	padding: 6px 12px;
+	border-radius: 20px;
+	font-size: 13px;
+	font-weight: 500;
+}
+
+.google-login-status-badge.success {
+	background-color: #e6f4ea;
+	color: #137333;
+}
+
+.google-login-status-badge.warning {
+	background-color: #fef7e0;
+	color: #b06000;
+}
+
+.google-login-status-badge .dashicons {
+	font-size: 18px;
+	width: 18px;
+	height: 18px;
+}
+
+/* WooCommerce Linking Section */
+.google-login-my-account-section {
+	margin: 30px 0;
+	padding: 20px;
+	background-color: #fdfdfd;
+	border: 1px solid #e5e5e5;
+	border-radius: 8px;
+}
+
+.google-login-section-title {
+	margin-top: 0;
+	margin-bottom: 5px;
+	font-size: 1.3em;
+}
+
+.google-login-section-desc {
+	color: #666;
+	font-size: 0.95em;
+	margin-bottom: 20px;
+}
+
+.google-login-connection-card {
+	display: flex;
+	align-items: center;
+	padding: 16px;
+	background: #fff;
+	border: 1px solid #e2e8f0;
+	border-radius: 6px;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.google-login-card-icon-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-right: 16px;
+}
+
+.google-login-card-details {
+	flex: 1;
+}
+
+.google-login-provider-title {
+	margin: 0;
+	font-weight: 600;
+	font-size: 15px;
+}
+
+.google-login-provider-status {
+	margin: 2px 0 0 0;
+	font-size: 13px;
+}
+
+.google-login-provider-status.text-success {
+	color: #2f855a;
+}
+
+.google-login-provider-status.text-muted {
+	color: #718096;
+}
+
+.google-login-card-actions .google-login-wc-btn {
+	display: inline-flex !important;
+	align-content: center !important;
+	justify-content: center !important;
+	height: 38px !important;
+	width: 120px !important;
+	padding: 0 !important;
+	padding-top: 0 !important;
+	padding-bottom: 0 !important;
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+	font-size: 13px !important;
+	font-weight: 600 !important;
+	border-radius: 4px !important;
+	text-decoration: none !important;
+	box-sizing: border-box !important;
+	cursor: pointer !important;
+	line-height: 1 !important;
+	border: 1px solid transparent !important;
+	transition: background-color 0.2s, border-color 0.2s, color 0.2s !important;
+}
+
+.google-login-card-actions .google-login-wc-btn.connect {
+	background-color: #1a73e8 !important;
+	color: #fff !important;
+	border: none !important;
+}
+
+.google-login-card-actions .google-login-wc-btn.connect:hover {
+	background-color: #1557b0 !important;
+}
+
+.google-login-card-actions .google-login-wc-btn.disconnect {
+	background-color: #ffffff !important;
+	color: #4a5568 !important;
+	border: 1px solid #cbd5e0 !important;
+}
+
+.google-login-card-actions .google-login-wc-btn.disconnect:hover {
+	background-color: #f7fafc !important;
+	color: #2d3748 !important;
+	border-color: #cbd5e0 !important;
+}
+
+.google-login-alert {
+	padding: 12px 16px;
+	border-radius: 4px;
+	margin-bottom: 20px;
+	font-size: 14px;
+}
+
+.google-login-alert.success {
+	background-color: #f0fff4;
+	border-left: 4px solid #38a169;
+	color: #276749;
+}
+
+

@@ -1,0 +1,7 @@
+/vendor/
+/node_modules/
+/authkit-temp/
+.phpunit.result.cache
+*.log
+.DS_Store
+Thumbs.db
