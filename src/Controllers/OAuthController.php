@@ -360,9 +360,23 @@ class OAuthController {
 				exit;
 			}
 
-			// Create new user.
-			$defaultRole = Settings::getDefaultRole();
-			$userId      = $this->userRepository->createUser( $profile, $defaultRole );
+			// Create new user. Resolve role (default to settings role, or 'customer' if registering via WooCommerce flow).
+			$role = Settings::getDefaultRole();
+			if ( class_exists( 'WooCommerce' ) ) {
+				$myAccountUrl = wc_get_page_permalink( 'myaccount' );
+				$checkoutUrl  = wc_get_page_permalink( 'checkout' );
+				if (
+					! empty( $redirectTo ) && (
+						str_contains( $redirectTo, $myAccountUrl ) ||
+						str_contains( $redirectTo, $checkoutUrl ) ||
+						str_contains( strtolower( $redirectTo ), 'my-account' ) ||
+						str_contains( strtolower( $redirectTo ), 'checkout' )
+					)
+				) {
+					$role = 'customer';
+				}
+			}
+			$userId = $this->userRepository->createUser( $profile, $role );
 
 			if ( is_wp_error( $userId ) ) {
 				Logger::log( 'User registration failed (WP_Error): ' . $userId->get_error_message(), 'ERROR' );

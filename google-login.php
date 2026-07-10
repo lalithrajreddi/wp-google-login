@@ -3,7 +3,7 @@
  * Plugin Name: Google Login
  * Plugin URI: https://lalithrajreddi.github.io
  * Description: A professional, secure, and extensible Google authentication system for WordPress and WooCommerce.
- * Version: 1.0.9
+ * Version: 1.1.0
  * Author: Lalith Raj Reddi
  * Author URI: https://lalithrajreddi.github.io
  * Text Domain: google-login
@@ -18,7 +18,7 @@
 defined( 'ABSPATH' ) || exit;
 
 // Define plugin version constant.
-define( 'GOOGLE_LOGIN_VERSION', '1.0.9' );
+define( 'GOOGLE_LOGIN_VERSION', '1.1.0' );
 
 // Verify PHP version requirement (PHP 8.1+).
 if ( version_compare( PHP_VERSION, '8.1', '<' ) ) {
