@@ -11,7 +11,7 @@ Follow these steps to install and configure the Google Login plugin.
 
 ## Step 1: Install Plugin
 
-1. Upload the `wp-social` plugin folder to your WordPress plugins directory (typically `wp-content/plugins/`).
+1. Upload the `google-login` plugin folder to your WordPress plugins directory (typically `wp-content/plugins/`).
 2. Open your terminal, navigate to the plugin folder, and run:
    ```bash
    composer install --no-dev

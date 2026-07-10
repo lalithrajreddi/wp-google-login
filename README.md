@@ -17,7 +17,7 @@ A professional, high-performance, and secure Google Authentication plugin for Wo
 If you just want to use this plugin on your WordPress site, follow these steps:
 
 1. Go to the **[Releases](https://github.com/lalithrajreddi/google-login/releases)** page of this repository.
-2. Download the latest `wp-social.zip` file (do **not** download the "Source Code" zip).
+2. Download the latest `google-login.zip` file (do **not** download the "Source Code" zip).
 3. Log in to your WordPress Admin Dashboard.
 4. Go to **Plugins > Add New** and click **Upload Plugin**.
 5. Upload the `.zip` file you just downloaded and click **Install Now**.
